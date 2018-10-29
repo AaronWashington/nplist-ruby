@@ -9,6 +9,7 @@ class App < Roda
   route do |r|
     # GET /
     @players = players
+  
     r.root { render :index }
   end
 
@@ -19,7 +20,10 @@ class App < Roda
     response = Net::HTTP.get_response(uri)
     list = JSON.parse(response.body)
     names = []
-    list.each { |k| names.push(k['name']) }
+    list.each do |k|
+      player = { 'id' => k['id'], 'name' => k['name'] }
+      names.push(player)
+    end
     names
   end
 end

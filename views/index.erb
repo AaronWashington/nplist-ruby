@@ -8,9 +8,9 @@
   </head>
   <body>
     <h1> NoPixel Player list </h1>
-        <ol type="1">
+        <ul >
         <% @players.each do |player| %>
-          <li> <%= player %> </li>
+          <li> <%= player['id'] %> | <%= player['name'] %> </li>
         <% end %>
         </ol>
   </body>
