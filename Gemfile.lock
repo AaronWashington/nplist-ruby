@@ -1,15 +1,21 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    mini_portile2 (2.3.0)
+    nokogiri (1.8.5)
+      mini_portile2 (~> 2.3.0)
     rack (2.0.5)
     roda (2.29.0)
       rack
+    tilt (2.0.8)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  nokogiri
   roda (~> 2.21)
+  tilt
 
 BUNDLED WITH
    1.17.1

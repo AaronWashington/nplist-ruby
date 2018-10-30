@@ -4,13 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>NoPixel Player list</title>
+<style>
 
+</style>
   </head>
   <body>
     <h1> NoPixel Player list </h1>
         <ul >
         <% @players.each do |player| %>
-          <li> <%= player['id'] %> | <%= player['name'] %> </li>
+          <li> <%= player['id'] %> | <a href="http://steamcommunity.com/profiles/<%= player['steamid64'] %>"><%= player['name'] %></a> | <%= player['prio'] %> </li>
         <% end %>
         </ol>
   </body>
