@@ -4,6 +4,7 @@ GEM
     mini_portile2 (2.3.0)
     nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
+    puma (3.12.0)
     rack (2.0.5)
     roda (2.29.0)
       rack
@@ -14,6 +15,7 @@ PLATFORMS
 
 DEPENDENCIES
   nokogiri
+  puma
   roda (~> 2.21)
   tilt
 

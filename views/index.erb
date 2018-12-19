@@ -4,16 +4,61 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>NoPixel Player list</title>
-<style>
-
-</style>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" integrity="sha256-2pUeJf+y0ltRPSbKOeJh09ipQFYxUdct5nTY6GAXswA="
+        crossorigin="anonymous" />
+    <style>
+    body {
+      font-size: 10px;
+    }
+    </style>
   </head>
   <body>
-    <h1> NoPixel Player list </h1>
-        <ul >
-        <% @players.each do |player| %>
-          <li> <%= player['id'] %> | <a href="http://steamcommunity.com/profiles/<%= player['steamid64'] %>"><%= player['name'] %></a> | <%= player['prio'] %> </li>
-        <% end %>
-        </ol>
+    <h3 class="is-size-3"> NoPixel Player list: <%= @players.length %> / 32 players online <% if @queue_size.positive? %> (Queue: <%= @queue_size %>) <% end %> </h3>
+        <table class="table is-bordered">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Steam ID</th>
+              <th>Ping</th>
+              <th>Priority</th>
+              <th>Twitch</th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @players.each_with_index do |player, i| %>
+          <tr>
+            <td>
+              <%= i+1 %>
+            </td>
+            <td>
+              <%= player['id'] %>
+            </td>
+            <td>
+             <a href="http://steamcommunity.com/profiles/<%= player['steamid64'] %>"><%= player['name'] %></a> 
+            </td>
+            <td>
+              <%= player['steamid'] %>
+            </td>
+            <td>
+              <%= player['ping'] %>
+            </td>
+            <td>
+              <%= player['prio'] %>
+            </td>
+            <td>
+            <% unless player['twitch'].nil? %>
+              <a href="http://twitch.tv/<%= player['twitch'] %>"> <%= player['twitch'] %> </a>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+          </tbody>
+        </table>
   </body>
 </html>
+
+
